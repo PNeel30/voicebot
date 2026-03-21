@@ -1,0 +1,44 @@
+[
+  {
+    "scheme_id": "PMK001",
+    "language": "en",
+    "title": "PM Kisan Scheme",
+    "content": "PM Kisan Yojana PM Kisan Scheme provides income support of Rs 6000 per year to small and marginal farmers. The amount is transferred directly to farmers bank accounts in three equal installments of Rs 2000 each. All landholding farmer families are eligible for this PM Kisan scheme."
+  },
+  {
+    "scheme_id": "PMK001",
+    "language": "hi",
+    "title": "प्रधान मंत्री किसान सम्मान निधि योजना",
+    "content": "पीएम किसान योजना प्रधानमंत्री किसान योजना पीएम किसान स्कीम पीएम किसान सम्मान निधि छोटे और सीमांत कृषकों को प्रति वर्ष 6000 रुपये की आय सहायता प्रदान करती है। यह राशि तीन समान किस्तों में सीधे बैंक खाते में 2000-2000 रुपये के रूप में हस्तांतरित की जाती है। सभी भूमिधारक परिवार इस पीएम किसान योजना के लिए पात्र हैं। पीएम किसान योजना रजिस्ट्रेशन ऑनलाइन।"
+  },
+  {
+    "scheme_id": "PMK002",
+    "language": "hi",
+    "title": "पीएम किसान योजना के लाभ",
+    "content": "पीएम किसान योजना प्रधानमंत्री किसान सम्मान निधि पीएम किसान स्कीम के तहत कृषकों को हर साल 6000 रुपये मिलते हैं। यह पैसा सीधे बैंक खाते में आता है। इस पीएम किसान योजना से देश के 12 करोड़ से अधिक कृषक लाभान्वित हो रहे हैं। पीएम किसान योजना में रजिस्ट्रेशन ऑनलाइन होता है।"
+  },
+  {
+    "scheme_id": "FAO001",
+    "language": "en",
+    "title": "Crop Advisory - Rice",
+    "content": "Rice cultivation advisory: Ensure proper water management with 5-7 cm standing water during vegetative stage. Apply nitrogen fertilizer in split doses. Monitor for pest attacks especially stem borer and leaf folder. Consult local extension office for region-specific rice farming recommendations."
+  },
+  {
+    "scheme_id": "FAO001",
+    "language": "hi",
+    "title": "फसल सलाह - धान की खेती",
+    "content": "धान की खेती चावल की खेती के लिए सलाह: वानस्पतिक अवस्था के दौरान 5-7 सेमी खड़े पानी के साथ उचित जल प्रबंधन सुनिश्चित करें। नाइट्रोजन उर्वरक को विभाजित खुराक में लगाएं। कीट के हमलों की निगरानी करें विशेष रूप से तना छेदक और पत्ती मोड़क। धान की फसल चावल की फसल के लिए क्षेत्र-विशिष्ट सिफारिशों के लिए स्थानीय विस्तार कार्यालय से परामर्श करें।"
+  },
+  {
+    "scheme_id": "PMFBY001",
+    "language": "hi",
+    "title": "प्रधानमंत्री फसल बीमा योजना",
+    "content": "प्रधानमंत्री फसल बीमा योजना PMFBY कृषकों को प्राकृतिक आपदाओं से फसल के नुकसान पर बीमा कवर प्रदान करती है। कृषकों को केवल 2% प्रीमियम देना होता है। शेष प्रीमियम सरकार द्वारा वहन किया जाता है। यह फसल बीमा योजना सभी फसलों के लिए उपलब्ध है।"
+  },
+  {
+    "scheme_id": "KCC001",
+    "language": "hi",
+    "title": "किसान क्रेडिट कार्ड योजना",
+    "content": "किसान क्रेडिट कार्ड KCC योजना कृषकों को कम ब्याज दर पर कृषि ऋण प्रदान करता है। इस कार्ड से कृषक बीज, खाद और अन्य कृषि आवश्यकताओं के लिए पैसे निकाल सकते हैं। ब्याज दर 7% है और समय पर भुगतान पर 3% की छूट मिलती है। KCC कार्ड बैंक से मिलता है।"
+  }
+]
