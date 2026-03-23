@@ -1,135 +1,149 @@
-# Multilingual Vernacular Voicebot with RAG
+# 🎙️ Voice Bot Assistant
 
-A voice-based query system for rural/semi-urban India supporting Hindi, Tamil, Bengali, and other Indian languages.
+An intelligent **voice-controlled assistant** that listens to user commands, processes them using speech recognition, and responds with synthesized speech.
 
-## Features
+---
 
-- **Speech-to-Text**: Whisper large-v2 with forced Hindi language detection
-- **RAG Pipeline**: Gemini embeddings API (text-embedding-004) with cosine similarity
-- **Multilingual Support**: Hindi, Tamil, Bengali, English
-- **Text-to-Speech**: Google TTS for voice responses
-- **Confidence Scoring**: Prevents hallucinations with threshold-based responses
-- **Language Filtering**: Filters corpus by language before retrieval
+## ✨ Features
 
-## Architecture
+* 🎤 Voice input using speech recognition
+* 🗣️ Text-to-speech response system
+* ⚡ Real-time command processing
+* 🧠 Smart command handling (custom actions)
+* 🔄 Continuous listening loop
+* 💻 Hands-free interaction
 
+---
+
+## 🏗️ Architecture
+
+```id="m2p8lx"
+User Voice Input
+        ↓
+ Speech Recognition
+ (Speech → Text)
+        ↓
+ Command Processing
+        ↓
+ Action Execution
+        ↓
+ Text-to-Speech Engine
+ (Text → Voice)
+        ↓
+ Audio Response Output
 ```
-Audio Input → STT (Whisper large-v2) → Query Embedding (Gemini API)
-                                              ↓
-                                    Cosine Similarity Search
-                                              ↓
-                                    Top-K Context Retrieval
-                                              ↓
-                            LLM (Gemini 1.5 Flash) → TTS → Audio Output
+
+---
+
+## 📂 Project Structure
+
+```id="n7q4zs"
+voice_bot/
+│── main.py / app.py        # Main application loop
+│── commands.py             # Command handling logic
+│── speech_utils.py         # Speech recognition & TTS
+│── requirements.txt        # Dependencies
+│── README.md               # Documentation
 ```
 
-## Setup
+---
 
-### Local Development
+## 🚀 Quick Start
 
-```powershell
-# Create virtual environment
-python -m venv hello
-.\hello\Scripts\Activate.ps1
-
-# Install dependencies
+```bash id="k9v2xp"
+git clone <your-repo-link>
+cd voice_bot
 pip install -r requirements.txt
-
-# Set environment variables
-# Create .env file with:
-# GEMINI_API_KEY=your_key_here
-
-# Run app (no index building required - embeddings generated on-the-fly)
-streamlit run streamlit_app.py
 ```
 
-### Docker
+---
 
-```powershell
-# Build image
-docker build -t voicebot .
+## ⚙️ Setup Instructions
 
-# Run container
-docker run -p 8501:8501 --env-file .env voicebot
+### 1️⃣ Install Dependencies
+
+```bash id="q3t8wd"
+pip install SpeechRecognition pyttsx3 pyaudio
 ```
 
-## Usage
+⚠️ Note:
 
-1. Upload audio file (WAV/MP3/M4A)
-2. Select language (optional, auto-detects)
-3. View transcript and retrieved context
-4. Get generated response with confidence score
-5. Listen to audio response
+* `pyaudio` installation may require additional setup (especially on Windows)
 
-## Configuration
+---
 
-Edit `app/config.py`:
+### 2️⃣ Microphone Setup
 
-- `STT_MODEL`: Whisper model size (default: large-v2)
-- `GEMINI_API_KEY`: Your Google Gemini API key (required)
-- `RETRIEVER_CONFIDENCE_THRESHOLD`: Minimum retrieval score (default: 0.15)
-- `TOP_K_RETRIEVAL`: Number of documents to retrieve (default: 3)
+* Ensure microphone is connected and working
+* Grant necessary permissions
 
-## API Endpoints
+---
 
-FastAPI server available at `app/main.py`:
+### 3️⃣ Run the Application
 
-```bash
-uvicorn app.main:app --reload
+```bash id="z5m1rc"
+python main.py
 ```
 
-- `POST /query`: Text query
-- `POST /voice-query`: Audio file upload
+---
 
-## Model Choices
+## ▶️ How It Works
 
-- **STT**: Whisper large-v2 with forced Hindi language (prevents Urdu script)
-- **Embeddings**: Gemini text-embedding-004 (superior Hindi understanding)
-- **LLM**: Google Gemini 1.5 Flash Latest
-- **TTS**: Google TTS (supports Hindi, Bengali, Tamil)
+1. 🎤 User speaks a command
 
-## Anti-Hallucination Strategy
+2. ⚙️ System:
 
-1. **Retrieval Confidence**: Cosine similarity score from Gemini embeddings
-2. **Language Filtering**: Pre-filters corpus by user language before retrieval
-3. **Fallback Response**: "Mujhe is vishay mein jaankari nahi hai" when confidence < 0.15
-4. **Context Grounding**: LLM instructed to use only provided context
-5. **Direct Context Fallback**: Returns top retrieved document if LLM fails
+   * Captures audio input
+   * Converts speech → text
+   * Processes command logic
 
-## Project Structure
+3. 🔊 Output:
 
-```
-Voicebot/
-├── app/
-│   ├── config.py          # Configuration
-│   ├── stt.py             # Speech-to-text (Whisper)
-│   ├── rag_gemini.py      # RAG with Gemini embeddings API
-│   ├── tts.py             # Text-to-speech (gTTS)
-│   └── main.py            # FastAPI server (optional)
-├── data/
-│   └── sample_corpus.json # Knowledge base
-├── streamlit_app.py       # Web UI
-├── requirements.txt
-├── Dockerfile
-└── README.md
-```
+   * Executes action
+   * Responds using text-to-speech
 
-## Adding New Data
+---
 
-Add entries to `data/sample_corpus.json`:
+## 📡 Core Functions
 
-```json
-{
-  "id": "new_scheme",
-  "language": "hi",
-  "category": "agriculture",
-  "title": "New Scheme",
-  "content": "Scheme details in Hindi..."
-}
-```
+| Function            | Description                          |
+| ------------------- | ------------------------------------ |
+| `listen()`          | Captures and converts speech to text |
+| `speak()`           | Converts text to speech              |
+| `process_command()` | Handles user commands                |
 
-No rebuild needed - embeddings are generated on-the-fly using Gemini API.
+---
 
-## License
+## 🛠️ Tech Stack
 
-MIT
+| Category           | Technology        |
+| ------------------ | ----------------- |
+| Language           | Python            |
+| Speech Recognition | SpeechRecognition |
+| Text-to-Speech     | pyttsx3           |
+| Audio Processing   | PyAudio           |
+
+---
+
+## 🎯 Design Decisions
+
+* **SpeechRecognition library** → Easy integration for voice input
+* **pyttsx3 (offline TTS)** → No internet dependency
+* **Modular command system** → Easy to extend commands
+* **Continuous loop design** → Enables real-time assistant behavior
+
+## 🔐 Security Best Practices
+
+* No storage of voice data
+* Safe command parsing
+* Local processing (no data sent externally)
+
+---
+
+## 🚀 Future Improvements
+
+* 🤖 Integrate NLP (ChatGPT-like responses)
+* 🌐 Add web-based interface
+* 🎯 Wake-word detection (like "Hey Assistant")
+* 📱 Mobile app version
+* 🧠 Context-aware conversations
